@@ -13,8 +13,13 @@
     <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/best-practices-for-listing.html#plugin-description -->
     <description><![CDATA[
-        Support KFP DSL syntax check for PyCharm<br>
-        @dsl.component decorator is supported.
+        Framework support for Kubeflow Pipelines SDK.<br>
+        This plugin features:<br>
+        <ul>
+        <li>Type checking for DSL decorators</li>
+        <li>Type resolution of component calls</li>
+        <li>Type resolution of component references</li>
+        </ul>
     ]]></description>
 
     <!-- Product and plugin compatibility requirements.
