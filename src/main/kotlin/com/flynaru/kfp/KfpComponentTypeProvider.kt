@@ -4,6 +4,7 @@ import com.intellij.openapi.diagnostic.logger
 import com.intellij.openapi.util.Ref
 import com.intellij.psi.PsiElement
 import com.jetbrains.python.psi.*
+import com.jetbrains.python.psi.impl.canQualifyAnImplicitName
 import com.jetbrains.python.psi.types.PyType
 import com.jetbrains.python.psi.types.PyTypeProviderBase
 import com.jetbrains.python.psi.types.TypeEvalContext
@@ -94,7 +95,10 @@ class KfpComponentTypeProvider : PyTypeProviderBase() {
         if (qName.firstComponent?.equals("kfp") == true) {
             qName = qName.removeHead(1)
         }
-        return qName.matches("dsl", type.ident)
+        if (qName.firstComponent?.equals("dsl") == true) {
+            qName = qName.removeHead(1)
+        }
+        return qName.matches(type.ident)
     }
 
 }
